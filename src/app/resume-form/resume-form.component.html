@@ -1,0 +1,96 @@
+<form class="flex flex-col w-full h-full gap-4 px-2 overflow-y-auto" [formGroup]="form">
+  <div class="w-full pb-4 border-b-2 border-base-300">
+    <label class="w-full form-control">
+      <div class="label">
+        <span class="font-bold label-text">What is your name?</span>
+      </div>
+      <input type="text" placeholder="Type here" class="w-full input input-bordered" formControlName="name"
+        (keyup)="emitData()" />
+    </label>
+    <label class="w-full form-control">
+      <div class="label">
+        <span class="font-bold label-text">What is your profession?</span>
+      </div>
+      <input type="text" placeholder="Type here" class="w-full input input-bordered" formControlName="profession"
+        (keyup)="emitData()" />
+    </label>
+  </div>
+  <div class="w-full" formArrayName="contact">
+    @for (contact of contact.controls; track $index) {
+    <div class="flex w-full gap-2 form-control">
+      <div class="w-full" formGroupName="{{$index}}">
+        <div class="label">
+          <span class="font-bold label-text">Contact method type ({{$index + 1}})</span>
+        </div>
+        <input type="text" placeholder="Type here" class="w-full input input-bordered" formControlName="type"
+          (keyup)="emitData()" />
+
+        <div class="label">
+          <span class="font-bold label-text">Contact method value ({{$index + 1}})</span>
+        </div>
+        <input type="text" placeholder="Type here" class="w-full input input-bordered" formControlName="value"
+          (keyup)="emitData()" />
+      </div>
+    </div>
+    }
+    <div class="flex w-full gap-4 mt-4">
+      <button class="grow btn btn-sm btn-primary text-base-100" (click)="addContact()">Add a contact</button>
+      @if (contact.controls.length > 1) {
+      <button class="grow btn btn-sm btn-outline btn-error" (click)="removeContact()">Remove last contact</button>
+      }
+    </div>
+  </div>
+  <label class="w-full form-control">
+    <div class="label">
+      <span class="font-bold label-text">Objective</span>
+    </div>
+    <textarea class="w-full h-44 text-[16px] leading-6 textarea textarea-bordered" formControlName="objective"
+      (keyup)="emitData()"></textarea>
+  </label>
+  <div class="w-full" formArrayName="sections">
+    @for (item of sections.controls; track $index) {
+    <ng-container formGroupName="{{$index}}">
+      <label class="w-full form-control">
+        <div class="label">
+          <span class="font-bold label-text">Section Title ({{$index + 1}})</span>
+        </div>
+        <input type="text" name="" id="" class="input input-bordered" formControlName="sectionTitle">
+      </label>
+      <label class="w-full pb-0 mb-0 form-control">
+        <div class=" label">
+          <span class="font-bold label-text">Section Content ({{$index + 1}})</span>
+        </div>
+      </label>
+      <div class="w-full NgxEditor__Wrapper">
+        <ngx-editor-menu [editor]="item.getRawValue().editor" [toolbar]="toolbar"></ngx-editor-menu>
+        <ngx-editor [editor]="item.getRawValue().editor" formControlName="sectionHTML" (ngModelChange)="emitData()" class="min-h-60"></ngx-editor>
+      </div>
+    </ng-container>
+    }
+  </div>
+  <div class="flex w-full gap-4 mt-4">
+    <button class="grow btn btn-sm btn-primary text-base-100" (click)="addSection()">Add Section</button>
+    @if (sections.controls.length > 1) {
+    <button class="grow btn btn-sm btn-outline btn-error" (click)="removeSection()">Remove Last Section</button>
+    }
+  </div>
+
+  <div class="w-full" formArrayName="skills">
+    @for (item of skills.controls; track $index) {
+    <ng-container>
+      <label class="w-full form-control">
+        <div class="label">
+          <span class="font-bold label-text">Skill ({{$index + 1}})</span>
+        </div>
+        <input type="text" class="input input-bordered" formControlName="{{$index}}" (keyup)="emitData()">
+      </label>
+    </ng-container>
+    }
+  </div>
+  <div class="flex w-full gap-4 mt-4">
+    <button class="grow btn btn-sm btn-primary text-base-100" (click)="addSkill()">Add Skill</button>
+    @if (skills.controls.length > 1) {
+    <button class="grow btn btn-sm btn-outline btn-error" (click)="removeSkill()">Remove Last Skill</button>
+    }
+  </div>
+</form>

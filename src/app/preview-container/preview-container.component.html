@@ -1,0 +1,39 @@
+<div class="resume-container">
+  <header>
+    <div class="header-flex">
+      <div class="left-section">
+        <h1 class="name">{{formData?.getRawValue()?.name}}</h1>
+        <pre class="profession"> {{formData?.getRawValue()?.profession}}</pre>
+      </div>
+      <div class="right-section contact-info">
+        @for (contact of formData?.getRawValue()?.contact; track $index) {
+          <p><span>{{contact.type}}: </span><span style="letter-spacing: 1px;">{{contact.value}}</span></p>
+        }
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Objective</h2>
+    <p [innerHTML]="formData?.controls?.['objective']?.value"></p>
+  </section>
+
+  @for (item of formData?.getRawValue()?.sections; track $index) {
+    <section>
+      <h2>{{item.sectionTitle}}</h2>
+      <div class="job" [innerHTML]="item.sectionHTML">
+      </div>
+    </section>
+  }
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <ul class="skills-grid">
+      @for (item of formData?.getRawValue()?.skills; track $index) {
+        <li>
+          <pre>{{item}} </pre>
+        </li>
+      }
+    </ul>
+  </section>
+</div>

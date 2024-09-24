@@ -1,0 +1,180 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* General styles */
+* {
+    /* font-family: "Open Sans", sans-serif; */
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: black;
+    background: #fff;
+    padding: 1.25em; /* 20px */
+}
+
+.resume-container {
+    max-width: 210mm; /* A4 size remains in fixed px or mm */
+    margin: 0 auto;
+    border: 0.0625em solid #ccc; /* 1px */
+    background: #fff;
+}
+
+/* Header styling */
+.header-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4em; /* 4em = 64px */
+}
+
+.left-section {
+    text-align: right;
+}
+
+.name {
+    font-size: 2.5em; /* 40px */
+    font-weight: bolder;
+    letter-spacing: 0.0625em; /* 1px */
+}
+
+.profession {
+    font-size: 1.125em; /* 18px */
+    color: #333;
+    letter-spacing: 0.0625em; /* 1px */
+}
+
+.contact-info {
+    font-size: 0.875em; /* 14px */
+}
+
+.contact-info p {
+    padding-block: 0.125em; /* 2px */
+    margin: 0;
+}
+
+.phone span {
+    letter-spacing: 0.0625em; /* 1px */
+    font-weight: bold;
+    margin-right: 0.25em; /* 4px */
+    word-spacing: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Sections styling */
+section {
+    margin-bottom: 1.25em; /* 20px */
+}
+
+section h2 {
+    letter-spacing: 0.0625em; /* 1px */
+}
+
+h2 {
+    font-size: 1.125em; /* 18px */
+    margin-bottom: 0.625em; /* 10px */
+    border-bottom: 0.125em solid #ccc; /* 2px */
+    padding-bottom: 0.3125em; /* 5px */
+}
+
+p, ul {
+    font-size: 0.875em; /* 14px */
+    line-height: 1.5;
+    margin-bottom: 0.625em; /* 10px */
+}
+
+ul {
+    list-style: disc inside;
+}
+
+:host ::ng-deep ul {
+    list-style: disc inside;
+}
+
+:host ::ng-deep .job h3 {
+    font-size: 1em; /* 16px */
+    font-weight: bold;
+}
+
+:host ::ng-deep ul li p {
+    display: inline;
+}
+
+:host ::ng-deep ol {
+    list-style: decimal inside;
+}
+
+:host ::ng-deep ol li p {
+    display: inline;
+}
+
+.job em {
+    font-size: 0.875em; /* 14px */
+    color: #333;
+}
+
+strong {
+    font-weight: bold;
+}
+
+li {
+    margin-block: 0.25em; /* 4px */
+}
+
+.projects li {
+    margin-block: 0.625em; /* 10px */
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    place-items: start start;
+}
+
+.skills h2 {
+    width: 100%;
+}
+
+.skills-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    gap: 0.25em; /* 4px */
+    list-style: none;
+    padding: 0;
+}
+
+.skills-grid li {
+    font-size: 0.875em; /* 14px */
+}
+
+/* Print media query to ensure PDF format works */
+@media print {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .resume-container {
+        border: none;
+        padding: 0em;
+    }
+
+    h2 {
+        font-size: 1em; /* 16px */
+        border-bottom: 0.0625em solid #aaa; /* 1px */
+    }
+}

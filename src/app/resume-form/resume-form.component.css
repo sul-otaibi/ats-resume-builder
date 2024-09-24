@@ -1,0 +1,38 @@
+input, textarea {
+    @apply bg-white;
+}
+
+::ng-deep .NgxEditor__Popup {
+    left: -50px;
+}
+
+::ng-deep .NgxEditor__Popup input[type="text"], ::ng-deep .NgxEditor__Popup input[type="url"]{
+    @apply input;
+    @apply input-bordered;
+}
+
+::ng-deep .NgxEditor__Popup button {
+    @apply btn;
+    @apply btn-primary;
+    @apply btn-sm
+}
+
+@media screen and (min-width: 350px){
+    ::ng-deep .NgxEditor__Popup {
+        left: 0px;
+        right: 0px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    ::ng-deep .NgxEditor__Popup {
+        left: -200px;
+        right: 0px;
+    }
+}
+
+@media screen and (min-width: 1270px){
+    ::ng-deep .NgxEditor__Popup {
+        left: -200px;
+    }
+}

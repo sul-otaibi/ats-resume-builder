@@ -1,0 +1,15 @@
+<label class="w-full form-control">
+    <div class="label">
+        <span class="font-bold label-text">Section Title {{id}}</span>
+    </div>
+    <input type="text" name="" id="" class="input input-bordered" [ngModel]="title" (ngModelChange)="handleTitleChange($event)">
+</label>
+<label class="w-full pb-0 mb-0 form-control">
+    <div class="pb-0 mb-0 label">
+        <span class="font-bold label-text">Section Content</span>
+    </div>
+</label>
+<div class="w-full NgxEditor__Wrapper">
+    <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+    <ngx-editor [editor]="editor" [ngModel]="html" (ngModelChange)="handleHTMLChange($event)" class="min-h-60"></ngx-editor>
+</div>
